@@ -44,7 +44,7 @@ def findSS(str,target):
             if dict_temp == dict_target:
                 return window
             else:
-            start_pointer += 1
+             start_pointer += 1
         window += 1
     return 0
 
@@ -57,4 +57,6 @@ if __name__ == '__main__':
 Time: 40 mins
 Unfinish, and return None
 
+Why: 1. spend too much time on thinking a good solution rather than a "possible" solution.
+    2. forget some basic syntax of python dict, spend time on try and test dict code
 """

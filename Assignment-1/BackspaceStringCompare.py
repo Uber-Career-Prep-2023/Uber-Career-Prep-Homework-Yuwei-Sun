@@ -46,6 +46,6 @@ if __name__ == '__main__':
 """
 Time: 6 mins
 
-time-complexity: O(M+N+min(M+N)), where M and N is length of input string
+time-complexity: O(M+N+min(M,N)), where M and N is length of input string
 space-complexity: O(M+N), where M and N is length of input string
 """

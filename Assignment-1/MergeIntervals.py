@@ -40,9 +40,34 @@ def mergeintervals(arr):
             result.pop(k+1)
     return result
 
+# use hash table and tuple
+def mergeintervals_hash(arr):
+    the_dict = {}
+    result = []
+    for i in arr:
+        if i[0] in the_dict or i[1] in the_dict:
+            if i[0] in the_dict and i[1] in the_dict and the_dict[i[0]] == the_dict[i[1]]:
+                continue # left and right are already stored
+            elif i[0] not in the_dict and i[1] in the_dict:
+                temp = the_dict[i[1]]
+                del the_dict[i[1]]
+                the_dict[i[0]] = (i[0],temp[1]) # combine the interval
+            elif i[0] in the_dict and i[1] not in the_dict:
+                the_key = the_dict[i[0]]
+                temp = the_dict[the_key]
+                del the_dict[the_key]
+                the_dict[the_key] = (temp[0],i[1])
+        elif i[0] not in the_dict:
+            the_dict[i[0]] = i # store the "length"
+            for j in range(i[0]+1,i[1]+1,1):
+                the_dict[j] = i[0] # key is the middle value(5,6,7,8) and value is i[0]
+    for i in the_dict:
+        if type(the_dict[i]) == tuple:
+            result.append(the_dict[i])
+    return result
 
 if __name__ == '__main__':
-    print(mergeintervals([(2, 3), (4, 8), (1, 2), (5, 7), (9, 12)]))
+    print(mergeintervals_hash([(5, 8), (6, 10), (2, 4), (3, 6)]))
 
 """
 Time: 40 mins

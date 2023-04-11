@@ -7,9 +7,13 @@
 
 #include <iostream>
 
+#include "DoublyLinkedList.h"
 int main(int argc, const char * argv[]) {
     // insert code here...
-    std::cout << "Hello, World!\n";
+    std::cout << "Hello, HW2!\n";
+    Node* head = new Node(1);
+    head->next = new Node(2);
+    listDisplay(head);
     return 0;
 }
 

@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		CEFAEE7D29DFC2A10006EC26 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEFAEE7C29DFC2A10006EC26 /* main.cpp */; };
+		CEFAEE8829E1B1490006EC26 /* BST.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEFAEE8629E1B1490006EC26 /* BST.cpp */; };
+		CEFAEE8B29E314560006EC26 /* Queue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEFAEE8929E314560006EC26 /* Queue.cpp */; };
+		CEFAEE8D29E31B590006EC26 /* SinglyLinkedList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEFAEE8C29E31B590006EC26 /* SinglyLinkedList.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,7 +29,11 @@
 		CEFAEE7929DFC2A10006EC26 /* Data Structure Implementations */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Data Structure Implementations"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEFAEE7C29DFC2A10006EC26 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		CEFAEE8329DFC5C00006EC26 /* SinglyLinkedList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SinglyLinkedList.h; sourceTree = "<group>"; };
-		CEFAEE8429E086CB0006EC26 /* DoublyLinkedList .h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DoublyLinkedList .h"; sourceTree = "<group>"; };
+		CEFAEE8429E086CB0006EC26 /* DoublyLinkedList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DoublyLinkedList.h; sourceTree = "<group>"; };
+		CEFAEE8629E1B1490006EC26 /* BST.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BST.cpp; sourceTree = "<group>"; };
+		CEFAEE8729E1B1490006EC26 /* BST.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BST.hpp; sourceTree = "<group>"; };
+		CEFAEE8929E314560006EC26 /* Queue.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Queue.cpp; sourceTree = "<group>"; };
+		CEFAEE8C29E31B590006EC26 /* SinglyLinkedList.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SinglyLinkedList.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,7 +68,11 @@
 			children = (
 				CEFAEE7C29DFC2A10006EC26 /* main.cpp */,
 				CEFAEE8329DFC5C00006EC26 /* SinglyLinkedList.h */,
-				CEFAEE8429E086CB0006EC26 /* DoublyLinkedList .h */,
+				CEFAEE8C29E31B590006EC26 /* SinglyLinkedList.cpp */,
+				CEFAEE8429E086CB0006EC26 /* DoublyLinkedList.h */,
+				CEFAEE8629E1B1490006EC26 /* BST.cpp */,
+				CEFAEE8729E1B1490006EC26 /* BST.hpp */,
+				CEFAEE8929E314560006EC26 /* Queue.cpp */,
 			);
 			path = "Data Structure Implementations";
 			sourceTree = "<group>";
@@ -123,7 +134,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEFAEE8B29E314560006EC26 /* Queue.cpp in Sources */,
 				CEFAEE7D29DFC2A10006EC26 /* main.cpp in Sources */,
+				CEFAEE8D29E31B590006EC26 /* SinglyLinkedList.cpp in Sources */,
+				CEFAEE8829E1B1490006EC26 /* BST.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,7 +257,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = XPTR25Z54Z;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -253,7 +267,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = XPTR25Z54Z;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

@@ -5,15 +5,15 @@
 //  Created by user on 4/7/23.
 //
 
-#ifndef DoublyLinkedList__h
-#define DoublyLinkedList__h
+#ifndef DoublyLinkedList_h
+#define DoublyLinkedList_h
 
 #include <iostream>
 using namespace std;
 
 struct Node {
     // constructor
-    Node(int val) : data(val), prev(nullptr), next(nullptr) {}
+    Node(int val,Node* prev=nullptr,Node* next=nullptr) : data(val), prev(prev), next(next) {}
     int data;
     Node* prev;
     Node* next;
@@ -45,7 +45,7 @@ void insertAtBack(Node*& head, int val)
     // Create a new node when there is no linkedlist
     if (head == nullptr)
     {
-       Node* head = new Node(val);
+        head = new Node(val);
     }
     else
     {
@@ -74,6 +74,7 @@ void insertAfter(Node* head, int val, Node*& loc)
 
 // removes first Node; returns new head
 Node* deleteFront(Node* head)
+{
     if (head == nullptr)
     {
         return nullptr;
@@ -86,7 +87,7 @@ Node* deleteFront(Node* head)
     head = nullptr;
     
     //return
-    return newHead
+    return newHead;
 }
 
 // removes last Node
@@ -131,7 +132,7 @@ Node* deleteNode(Node* head, Node* loc)
     // call delete front
     else if (head == loc)
     {
-        deleteFront(Node* head);
+        deleteFront(head);
     }
     else {
         Node* prev = head;
@@ -180,16 +181,17 @@ Node* reverseIterative(Node* head)
     }
     // prev,currsor,next
     Node* temp =  nullptr;
-    Node* curssor = head;
+    Node* cursor = head;
+    Node* next = nullptr;
     
     // loop until cursor reach the trail
-    while (currsor != nullptr)
+    while (cursor != nullptr)
     {
-        next = curssor->next;
-        temp = curssor->prev;
-        curssor->prev = curssor->next;
-        curssor->next = temp;
-        currssor = next;
+        next = cursor->next;
+        temp = cursor->prev;
+        cursor->prev = cursor->next;
+        cursor->next = temp;
+        cursor = next;
     }
     return temp;
 }
@@ -197,7 +199,7 @@ Node* reverseIterative(Node* head)
 // reverses the linked list recursively (Hint: you will need a helper function)
 Node* reverseRecursive(Node* head)
 {
-    
+    return head;
 }
 
-#endif /* DoublyLinkedList__h */
+#endif /* DoublyLinkedList_h */

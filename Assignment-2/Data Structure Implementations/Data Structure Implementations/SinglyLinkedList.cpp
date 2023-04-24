@@ -107,9 +107,7 @@ SinglyLinkedList::Node* SinglyLinkedList::deleteNode(Node* loc) {
     }
     // isolate the node and delete
     currsor->next = loc->next;
-    loc->next = nullptr;
     delete loc;
-    loc = nullptr;
     return head;
 }
 

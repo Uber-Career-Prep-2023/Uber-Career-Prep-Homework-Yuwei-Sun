@@ -7,13 +7,22 @@
 
 #include <iostream>
 
-#include "DoublyLinkedList.h"
+#include "DoublyLinkedList.cpp"
+using namespace std;
+
 int main(int argc, const char * argv[]) {
     // insert code here...
-    std::cout << "Hello, HW2!\n";
-    Node* head = new Node(1);
-    head->next = new Node(2);
-    listDisplay(head);
+    cout << "Hello, HW2!\n";
+
+    
+    DoublyLinkedList::DoublyLinkedList* myDLL = new DoublyLinkedList::DoublyLinkedList();
+    myDLL->insertAtBack(1);
+    myDLL->insertAtBack(2);
+    myDLL->insertAtBack(3);
+    myDLL->insertAtBack(4);
+    myDLL->listDisplay();
+    myDLL->reverseIterative();
+    myDLL->listDisplay();
     return 0;
 }
 

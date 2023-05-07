@@ -122,6 +122,7 @@ int SinglyLinkedList::length()const {
     return len;
 }
 
+// Reverse the SinglyLinkedList by iterative
 SinglyLinkedList::Node* SinglyLinkedList::reverseIterative() {
     if (head == nullptr || head->next == nullptr) {
         // empty or single node list
@@ -151,4 +152,20 @@ SinglyLinkedList::Node* SinglyLinkedList::reverseIterative() {
     }
     
     return prev;
+}
+
+// Reverse the SinglyLinkedList by recursive
+SinglyLinkedList::Node* SinglyLinkedList::reverseRecursive(Node* head) {
+    if (head == nullptr || head->next == nullptr) {
+        // base case: the list is empty or has only one node
+        return head;
+    }
+    else {
+        // recursive case: reverse the sublist starting from the second node
+        Node* tail = head->next;
+        Node* new_head = reverseRecursive(head->next);
+        tail->next = head;
+        head->next = nullptr;
+        return new_head;
+    }
 }

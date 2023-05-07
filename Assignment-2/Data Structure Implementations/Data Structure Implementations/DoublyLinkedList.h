@@ -98,9 +98,9 @@ void deleteBack(Node*& head)
         return;
     }
     // only have 1 node
-    else if (head->next = nullptr){
+    else if (head->next == nullptr){
         delete head;
-        head == nullptr;
+        head = nullptr;
         return;
     }
     // serval nodes
@@ -197,9 +197,42 @@ Node* reverseIterative(Node* head)
 }
 
 // reverses the linked list recursively (Hint: you will need a helper function)
-Node* reverseRecursive(Node* head)
-{
+void reverseRecursiveHelper(Node* node, Node*& newHead) {
+    // base case: if the list is empty or only has one element
+    if (node == nullptr) {
+        return;
+    }
+
+    // recursively reverse the rest of the list
+    reverseRecursiveHelper(node->next, newHead);
+
+    // set the prev and next pointers of the current node appropriately
+    if (node->next == nullptr) {
+        // this is the old head, so it becomes the new tail
+        trail = node;
+    } else {
+        // set the next node's prev pointer to this node
+        node->next->prev = node;
+    }
+    // set this node's next pointer to the previous node
+    node->next = node->prev;
+    // set this node's prev pointer to the next node (if it exists) or nullptr
+    node->prev = (node->next != nullptr) ? node->next->next : nullptr;
+
+    // if this is the first node, set it as the new head
+    if (node->prev == nullptr) {
+        newHead = node;
+    }
+}
+
+Node* DoublyLinkedList::reverseRecursive(Node* node) {
+    Node* newHead = nullptr;
+    reverseRecursiveHelper(node, newHead);
+    head = newHead;
     return head;
 }
+
+
+
 
 #endif /* DoublyLinkedList_h */

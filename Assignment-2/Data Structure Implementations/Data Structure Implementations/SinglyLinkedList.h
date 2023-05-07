@@ -38,7 +38,7 @@ public:
     Node* deleteNode(Node* loc);
     int length() const;
     Node* reverseIterative();
-    Node* reverseRecursive();
+    Node* reverseRecursive(Node* head);
     
 private:
     Node* head;

@@ -121,7 +121,7 @@ public:
         if (data.size() == 0){
             Item noneItem = Item(INT_MAX,"Nothing");
             return noneItem.value; // same as Heap
-            // Throw error maybe
+            // Or throw error maybe
             
         }
         else {

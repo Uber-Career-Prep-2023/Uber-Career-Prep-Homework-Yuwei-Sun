@@ -19,6 +19,18 @@ SinglyLinkedList::~SinglyLinkedList() {
     }
 }
 
+// print the linkedlist (help check)
+void SinglyLinkedList::listDisplay()
+{
+    const Node* cursor = head;
+    while (cursor != trail)
+    {
+        cout << cursor->data << ' ';
+        cursor = cursor->next;
+    }
+    cout << endl;
+}
+
 // insert a new node with data val at the front of the list
 SinglyLinkedList::Node* SinglyLinkedList::insertAtFront(int val) {
     // create a new head, and set old head as next of new head
@@ -123,10 +135,10 @@ int SinglyLinkedList::length()const {
 }
 
 // Reverse the SinglyLinkedList by iterative
-SinglyLinkedList::Node* SinglyLinkedList::reverseIterative() {
+void SinglyLinkedList::reverseIterative() {
     if (head == nullptr || head->next == nullptr) {
         // empty or single node list
-        return head;
+        return;
     }
     
     Node* prev = nullptr;
@@ -151,21 +163,25 @@ SinglyLinkedList::Node* SinglyLinkedList::reverseIterative() {
         currsor = next;
     }
     
-    return prev;
+    head = prev;
+}
+
+void SinglyLinkedList::reverseRecursive() {
+    // Use a helper function to do the recursion and get the new head.
+    head = reverseRecursivehelper(head);
 }
 
 // Reverse the SinglyLinkedList by recursive
-SinglyLinkedList::Node* SinglyLinkedList::reverseRecursive(Node* head) {
-    if (head == nullptr || head->next == nullptr) {
-        // base case: the list is empty or has only one node
-        return head;
+SinglyLinkedList::Node* SinglyLinkedList::reverseRecursivehelper(Node* node) {
+    if (node == nullptr || node->next == nullptr) {
+        // Base case: the list is empty or has only one node
+        return node;
     }
     else {
-        // recursive case: reverse the sublist starting from the second node
-        Node* tail = head->next;
-        Node* new_head = reverseRecursive(head->next);
-        tail->next = head;
-        head->next = nullptr;
+        // Recursive case: reverse the sublist starting from the second node
+        Node* new_head = reverseRecursivehelper(node->next);
+        node->next->next = node;
+        node->next = nullptr;
         return new_head;
     }
 }

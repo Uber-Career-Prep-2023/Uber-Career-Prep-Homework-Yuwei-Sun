@@ -201,34 +201,34 @@ namespace DoublyLinkedList {
         }
         
         // reverses the linked list iteratively
-        Node* reverseIterative()
-        {
-            if (head == nullptr || head->next == nullptr)
-            {
-                return nullptr;
-            }
-            // prev,currsor,next
-            Node* temp =  nullptr;
-            Node* cursor = head;
-            Node* next = nullptr;
-            
-            // loop until cursor reach the trail
-            while (cursor != nullptr)
-            {
-                next = cursor->next;
-                temp = cursor->prev;
-                cursor->prev = cursor->next;
-                cursor->next = temp;
-                cursor = next;
-            }
-            return temp;
-        }
+                void reverseIterative()
+                {
+                    if (head == nullptr || head->next == nullptr)
+                    {
+                        return;
+                    }
+                    // prev,currsor,next
+                    Node* temp =  nullptr;
+                    Node* cursor = head;
+                    Node* next = nullptr;
+                    
+                    // loop until cursor reach the trail
+                    while (cursor != nullptr)
+                    {
+                        next = cursor->next;
+                        temp = cursor->prev;
+                        cursor->prev = cursor->next;
+                        cursor->next = temp;
+                        cursor = next;
+                    }
+                    head = temp->prev;
+                }
         
         // reverses the linked list recursively (Hint: you will need a helper function)
-        Node* reverseRecursive() {
+        void reverseRecursive() {
             if (head == nullptr || head->next == nullptr) {
                 // Base case: empty list or list with only one node
-                return head;
+                return;
             } else {
                 // Recursive case
                 Node* newHead = reverseRecursiveHelper(head);
@@ -238,7 +238,6 @@ namespace DoublyLinkedList {
                 // Update the head to be the new head
                 head = newHead;
                 head->prev = nullptr;
-                return head;
             }
         }
 

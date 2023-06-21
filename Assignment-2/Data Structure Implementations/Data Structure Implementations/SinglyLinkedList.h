@@ -29,7 +29,7 @@ public:
     // deconstructor
     ~SinglyLinkedList();
     
-    void listDisplay(const Node* head);
+    void listDisplay();
     Node* insertAtFront(int val);
     void insertAtBack(int val);
     void insertAfter(int val, Node*& loc);
@@ -37,8 +37,9 @@ public:
     void deleteBack();
     Node* deleteNode(Node* loc);
     int length() const;
-    Node* reverseIterative();
-    Node* reverseRecursive(Node* head);
+    void reverseIterative();
+    void reverseRecursive();
+    Node* reverseRecursivehelper(Node* head);
     
 private:
     Node* head;

@@ -117,6 +117,7 @@ public:
         bubbledown(0);
     }
     
+    /*
     const string& top() const {
         if (data.size() == 0){
             Item noneItem = Item(INT_MAX,"Nothing");
@@ -128,7 +129,19 @@ public:
             return data[0].value;
         }
     }
+     */
     
+    const bool top(string& str) const {
+        if (data.size() == 0){
+            return false; // same as Heap
+            // Or throw error maybe
+            
+        }
+        else {
+            str = data[0].value;
+            return true;
+        }
+    }
     
 };
 

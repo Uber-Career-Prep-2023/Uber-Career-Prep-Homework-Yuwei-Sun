@@ -17,13 +17,13 @@ public:
     // destructor
     ~Queue();
     // returns a boolean indicating whether the queue is empty
-    bool isEmpty() const;
+    bool isQueueEmpty() const;
     // returns the first item in the queue
     int peek() const;
     // adds x to the back of the queue
     void enqueue(int x);
     // removes and returns the first item in the queue
-    int dequeue() const;
+    int dequeue();
     
     
 private:
@@ -51,7 +51,7 @@ Queue::~Queue()
 }
 
 // returns a boolean indicating whether the queue is empty
-bool Queue::isEmpty() const
+bool Queue::isQueueEmpty() const
 {
     return head==nullptr;
 }
@@ -60,7 +60,7 @@ bool Queue::isEmpty() const
 int Queue::peek() const
 {
     // empty queue
-    if (isEmpty())
+    if (isQueueEmpty())
     {
         return -1;
     }
@@ -73,10 +73,42 @@ int Queue::peek() const
 // adds x to the back of the queue
 void Queue::enqueue(int x)
 {
-    
+    Node* newNode = new Node;
+        newNode->data = x;
+        newNode->next = nullptr;
+        
+        // If queue is empty, make new node as head and tail both
+        if (isQueueEmpty())
+        {
+            head = newNode;
+            trail = newNode;
+        }
+        else
+        {
+            // Else, put the new node at the end of queue and make it (newNode) new tail
+            trail->next = newNode;
+            trail = newNode;
+        }
 }
 // removes and returns the first item in the queue
-int Queue::dequeue() const
+int Queue::dequeue()
 {
-    return -1;
+    if (isQueueEmpty())
+        {
+            return -1;
+        }
+        else
+        {
+            // Store the front node (head node) value in temp and move head to the next node
+            int temp = head->data;
+            Node* tempNode = head;
+            head = head->next;
+            
+            // If head becomes NULL, then change tail also as NULL
+            if (head == NULL)
+                trail = NULL;
+                
+            delete tempNode; // deallocate memory for tempNode
+            return temp;
+        }
 }

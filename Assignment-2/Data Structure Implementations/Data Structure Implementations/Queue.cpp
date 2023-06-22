@@ -7,35 +7,8 @@
 
 #include <stdio.h>
 #include <iostream>
+#include "Queue.hpp"
 using namespace std;
-
-class Queue
-{
-public:
-    // constructor
-    Queue(): head(nullptr),trail(nullptr){}
-    // destructor
-    ~Queue();
-    // returns a boolean indicating whether the queue is empty
-    bool isQueueEmpty() const;
-    // returns the first item in the queue
-    int peek() const;
-    // adds x to the back of the queue
-    void enqueue(int x);
-    // removes and returns the first item in the queue
-    int dequeue();
-    
-    
-private:
-    struct Node
-    {
-        int data;
-        Node* next;
-    };
-    // begin of queue and end of queue
-    Node* head;
-    Node* trail;
-};
 
 Queue::~Queue()
 {
@@ -51,7 +24,7 @@ Queue::~Queue()
 }
 
 // returns a boolean indicating whether the queue is empty
-bool Queue::isQueueEmpty() const
+bool Queue::isEmpty() const
 {
     return head==nullptr;
 }
@@ -60,7 +33,7 @@ bool Queue::isQueueEmpty() const
 int Queue::peek() const
 {
     // empty queue
-    if (isQueueEmpty())
+    if (isEmpty())
     {
         return -1;
     }
@@ -78,7 +51,7 @@ void Queue::enqueue(int x)
         newNode->next = nullptr;
         
         // If queue is empty, make new node as head and tail both
-        if (isQueueEmpty())
+        if (isEmpty())
         {
             head = newNode;
             trail = newNode;
@@ -93,7 +66,7 @@ void Queue::enqueue(int x)
 // removes and returns the first item in the queue
 int Queue::dequeue()
 {
-    if (isQueueEmpty())
+    if (isEmpty())
         {
             return -1;
         }

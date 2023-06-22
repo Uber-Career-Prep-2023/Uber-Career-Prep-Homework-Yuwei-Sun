@@ -14,25 +14,25 @@ class Queue
 {
 public:
     // constructor
-    Queue();
+    Queue(): head(nullptr),trail(nullptr){}
     // destructor
     ~Queue();
-    
+    // returns a boolean indicating whether the queue is empty
+    bool isEmpty() const;
     // returns the first item in the queue
-    int peek();
+    int peek() const;
     // adds x to the back of the queue
     void enqueue(int x);
     // removes and returns the first item in the queue
     int dequeue();
-    // returns a boolean indicating whether the queue is empty
-    bool isEmpty();
+    
     
 private:
     struct Node
     {
         int data;
         Node* next;
-    }
+    };
     // begin of queue and end of queue
     Node* head;
     Node* trail;

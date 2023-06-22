@@ -27,6 +27,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		CE759FC02A43FAEE0044415A /* Queue.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Queue.hpp; sourceTree = "<group>"; };
 		CEC3968D29F6C36D007B5BA7 /* DoublyLinkedList.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DoublyLinkedList.cpp; sourceTree = "<group>"; };
 		CEFAEE7929DFC2A10006EC26 /* Data Structure Implementations */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Data Structure Implementations"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEFAEE7C29DFC2A10006EC26 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
@@ -71,6 +72,7 @@
 				CEFAEE8329DFC5C00006EC26 /* SinglyLinkedList.h */,
 				CEFAEE8C29E31B590006EC26 /* SinglyLinkedList.cpp */,
 				CEC3968D29F6C36D007B5BA7 /* DoublyLinkedList.cpp */,
+				CE759FC02A43FAEE0044415A /* Queue.hpp */,
 				CEFAEE8629E1B1490006EC26 /* BST.cpp */,
 				CEFAEE8729E1B1490006EC26 /* BST.hpp */,
 				CEFAEE8929E314560006EC26 /* Queue.cpp */,

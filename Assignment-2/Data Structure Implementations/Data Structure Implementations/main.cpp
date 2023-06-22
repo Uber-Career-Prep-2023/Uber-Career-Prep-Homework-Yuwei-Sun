@@ -10,7 +10,7 @@
 #include "DoublyLinkedList.cpp"
 #include "SinglyLinkedList.h"
 #include "BST.hpp"
-#include "Queue.cpp"
+#include "Queue.hpp"
 
 using namespace std;
 
@@ -60,7 +60,7 @@ int main(int argc, const char * argv[]) {
     queue->enqueue(10);
     queue->enqueue(20);
     queue->enqueue(30);
-    cout << queue->isQueueEmpty() << endl;
+    cout << queue->isEmpty() << endl;
     
     int temp = queue->dequeue();
     cout << temp << endl;

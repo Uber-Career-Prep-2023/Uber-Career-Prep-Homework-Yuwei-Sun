@@ -113,39 +113,33 @@ Input: origin = E, destination = D
 Output: -1 (only path is: E→C (red), C→B (red), B→D (blue))
 
 """
+def AlternatingPath_helper_dfs(node, color, counter, destination, roads, visited):
+    if node == destination:
+        return counter
+
+    next_color = "blue" if color == "red" else "red"
+    for neighbor in roads[node][next_color]:
+        if visited[neighbor][next_color] == False:
+            visited[neighbor][next_color] = True
+            path_length = AlternatingPath_helper_dfs( neighbor, next_color, counter + 1, destination, roads, visited )
+            return path_length
+    return -1
 
 def AlternatingPath(graph,origin, destination):
-    roads = {} # store node in graph
+    #Prepare the graph
+    roads = {}
     for u, v, color in graph:
         if u not in roads:
             roads[u] = {'red': [], 'blue': []}
-        if color == "blue":
-            roads[u]['blue'].append( v )
-        else:
-            roads[u]['red'].append( v )
-    #print(roads)
-    visited = {}
-    for i in roads.keys():
-        if i not in visited:
-            visited[i] = {'red': False, 'blue': False}
+        roads[u][color].append( v )
 
-    queue = deque([(origin,"red"),(origin,"blue")])
+    # Initialize visited list
+    visited = {node: {'red': False, 'blue': False} for node in roads}
 
-    counter = 0
-    while queue:
-        node,color = queue.popleft()
-        if node == destination:
-            return counter
-        if color == "blue":
-            color_next = "red"
-        else:
-            color_next = "blue"
-        for j in roads[node][color_next]:
-            if visited[j][color_next] == False:
-                queue.append((j,color_next))
-                counter += 1
-                visited[j][color_next] = True
-        return -1
+    # Start the recursion from origin with both colors
+    return min( AlternatingPath_helper_dfs( origin, "red", 0, destination, roads, visited ),
+                AlternatingPath_helper_dfs( origin, "blue", 0, destination, roads, visited ) )
+
 
 """
 Divide-and-Conquer
